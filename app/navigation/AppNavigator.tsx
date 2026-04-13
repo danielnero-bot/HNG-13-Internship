@@ -7,11 +7,10 @@ import { Ionicons } from '@expo/vector-icons';
 // Screens
 import HomeScreen from '../screens/HomeScreen';
 import LengthScreen from '../screens/LengthScreen';
-import TemperatureScreen from '../screens/TemperatureScreen';
-import CurrencyScreen from '../screens/CurrencyScreen';
-import UnitConverterScreen from '../screens/UnitConverterScreen';
+import TemperatureScreen from '../screens/temperatureScreen';
+import CurrencyScreen from '../screens/currencyScreen';
 import HistoryScreen from '../screens/HistoryScreen';
-import SettingsScreen from '../screens/SettingsScreen';
+import SettingsScreen from '../screens/settings';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -23,7 +22,6 @@ function HomeStack() {
       <Stack.Screen name="Length" component={LengthScreen} />
       <Stack.Screen name="Temperature" component={TemperatureScreen} />
       <Stack.Screen name="Currency" component={CurrencyScreen} />
-      <Stack.Screen name="UnitConverter" component={UnitConverterScreen} />
     </Stack.Navigator>
   );
 }

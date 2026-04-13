@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/namespace
 import React, { useEffect, useState } from 'react';
 import {
   View,
