@@ -1,36 +1,7 @@
-import { Tabs } from "expo-router";
-import React from "react";
-
-import { HapticTab } from "@/components/haptic-tab";
-import { IconSymbol } from "@/components/ui/icon-symbol";
-import { Colors } from "@/constants/theme";
-import { useColorScheme } from "@/hooks/use-color-scheme";
-import AntDesign from "@expo/vector-icons/AntDesign";
-import Ionicons from '@expo/vector-icons/Ionicons';
-
-const tabs = [
-  {
-    name: "index",
-    title: "Home",
-    icon: ({ color }: { color: string }) => (
-      <IconSymbol size={28} name="house.fill" color={color} />
-    ),
-  },
-  {
-    name: "explore",
-    title: "History",
-    icon: ({ color }: { color: string }) => (
-      <AntDesign name="history" size={24} color={color} />
-    ),
-  },
-  {
-    name: "settings",
-    title: "Settings",
-    icon: ({ color }: { color: string }) => (
-      <Ionicons name="settings-sharp" size={24} color={color} />
-    ),
-  },
-];
+import React from 'react';
+import { Tabs } from 'expo-router';
+import { Ionicons } from '@expo/vector-icons';
+import { useColorScheme } from '@/hooks/use-color-scheme';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
@@ -39,30 +10,44 @@ export default function TabLayout() {
     <Tabs
       screenOptions={{
         headerShown: false,
-        tabBarActiveTintColor: Colors[colorScheme ?? "light"].tint,
-        tabBarLabelStyle: {
-          fontSize: 12,
-          fontWeight: "600",
-        },
         tabBarStyle: {
-          height: 70,
+          backgroundColor: '#0f172a',
+          borderTopWidth: 1,
+          borderTopColor: '#1e293b',
+          height: 60,
           paddingBottom: 8,
-          paddingTop: 8,
-          backgroundColor: "#10131a",
         },
-        tabBarButton: HapticTab,
+        tabBarActiveTintColor: '#3b82f6',
+        tabBarInactiveTintColor: '#64748b',
       }}
     >
-      {tabs.map((tab) => (
-        <Tabs.Screen
-          key={tab.name}
-          name={tab.name}
-          options={{
-            title: tab.title,
-            tabBarIcon: tab.icon,
-          }}
-        />
-      ))}
+      <Tabs.Screen
+        name="index"
+        options={{
+          title: 'Home',
+          tabBarIcon: ({ color, focused }) => (
+            <Ionicons name={focused ? 'home' : 'home-outline'} size={24} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="history"
+        options={{
+          title: 'History',
+          tabBarIcon: ({ color, focused }) => (
+            <Ionicons name={focused ? 'time' : 'time-outline'} size={24} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="settings"
+        options={{
+          title: 'Settings',
+          tabBarIcon: ({ color, focused }) => (
+            <Ionicons name={focused ? 'settings' : 'settings-outline'} size={24} color={color} />
+          ),
+        }}
+      />
     </Tabs>
   );
 }

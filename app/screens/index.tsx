@@ -5,18 +5,16 @@ import {
   StyleSheet,
   TouchableOpacity,
   ScrollView,
+  SafeAreaView,
   StatusBar,
 } from 'react-native';
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
-import { useRouter } from 'expo-router';
 
-export default function HomeScreen() {
-  const router = useRouter();
-
+export default function HomeScreen({ navigation }: any) {
   const tools = [
     {
-      id: 'length',
+      id: 'Length',
       title: 'Length',
       subtitle: 'Distance & Size',
       icon: 'ruler',
@@ -24,7 +22,7 @@ export default function HomeScreen() {
       bg: '#1e3a8a33',
     },
     {
-      id: 'currency',
+      id: 'Currency',
       title: 'Currency',
       subtitle: 'Global Exchange',
       icon: 'currency-usd',
@@ -32,7 +30,7 @@ export default function HomeScreen() {
       bg: '#064e3b33',
     },
     {
-      id: 'temperature',
+      id: 'Temperature',
       title: 'Temperature',
       subtitle: 'Heat & Cold',
       icon: 'thermometer',
@@ -43,7 +41,7 @@ export default function HomeScreen() {
 
   const handlePress = (id: string) => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-    router.push(`/${id}` as any);
+    navigation.navigate(id);
   };
 
   return (
