@@ -1,2 +1,2 @@
-import CurrencyScreen from './screens/currencyConverter';
+import CurrencyScreen from './screens/currencyScreen';
 export default CurrencyScreen;

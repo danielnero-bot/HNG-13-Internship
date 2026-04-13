@@ -1,2 +1,2 @@
-import TemperatureScreen from './screens/temperatureConverter';
+import TemperatureScreen from './screens/temperatureScreen';
 export default TemperatureScreen;

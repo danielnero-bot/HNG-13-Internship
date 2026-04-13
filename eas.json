@@ -11,6 +11,15 @@
     "preview": {
       "distribution": "internal"
     },
+    "appetize": {
+      "distribution": "internal",
+      "android": {
+        "buildType": "apk"
+      },
+      "ios": {
+        "simulator": true
+      }
+    },
     "production": {
       "autoIncrement": true
     }
