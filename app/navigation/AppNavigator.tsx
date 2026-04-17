@@ -11,6 +11,7 @@ import TemperatureScreen from '../screens/temperatureScreen';
 import CurrencyScreen from '../screens/currencyScreen';
 import HistoryScreen from '../screens/HistoryScreen';
 import SettingsScreen from '../screens/settings';
+import TaskScreen from '../screens/TasksScreen';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -22,6 +23,7 @@ function HomeStack() {
       <Stack.Screen name="Length" component={LengthScreen} />
       <Stack.Screen name="Temperature" component={TemperatureScreen} />
       <Stack.Screen name="Currency" component={CurrencyScreen} />
+      <Stack.Screen name="Tasks" component={TaskScreen}></Stack.Screen>
     </Stack.Navigator>
   );
 }
@@ -56,6 +58,7 @@ export default function AppNavigator() {
         <Tab.Screen name="Home" component={HomeStack} />
         <Tab.Screen name="History" component={HistoryScreen} />
         <Tab.Screen name="Settings" component={SettingsScreen} />
+        <Tab.Screen name="Tasks" component={TaskScreen} />
       </Tab.Navigator>
     </NavigationContainer>
   );
